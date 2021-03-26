@@ -10,11 +10,58 @@ class Chapter2 {
     }
     
     // Declare the Chapter 2 Milestone 2 method here
+    void milestone2(double num){
+        int numInt = (int)num;
+        int numDecimals = (int)((num - numInt) * 100);
+
+        System.out.println(numInt);
+        System.out.println(numDecimals);
+    }
 
     // Declare the Chapter 2 Milestone 3 method here
+    void milestone3(){
+        for(int i = 2; i <= 100; i++)
+        {
+            if(i == 2)
+            {
+                System.out.print(2 + " ");
+            }
+            else
+            {
+                boolean prime = true;
+                for(int j = 2; j <= i/2; j++)
+                {
+                        if(i % j == 0)
+                        {
+                            prime = false;
+                        }
+    
+                }                
+                if(prime)
+                {
+                    System.out.print(i + " ");
+                }
+            }
+        }
+        System.out.println();
+    }
 
     // Declare the Chapter 2 Milestone 4 method here
+    void milestone4(int seconds){
+        int days = seconds / (60 * 60 * 24);
+        seconds -= days * (60 * 60 * 24);
 
+        int hours = seconds / (60 * 60);
+        seconds -= hours * (60 * 60);
+
+        int minutes = seconds / 60;
+        seconds -= minutes * 60;
+
+        System.out.println("Days: " + days);
+        System.out.println("Hours: " + hours);
+        System.out.println("Minutes: " + minutes);
+        System.out.println("Seconds: " + seconds);
+    }
 }
 
 public class App {
@@ -27,8 +74,19 @@ public class App {
     }
     
     // Declare the Chapter 1 Milestone 2 method here
+    static void chapter1milestone2(double num1, double num2){
+        double average = (num1 + num2)/2;
+        System.out.println("The average is: " + average);
+    }
 
     // Declare the Chapter 1 Milestone 3 method here
+    static void chapter1milestone3(double radius){
+        double pi = 3.14;
+        double circumference = 2 * pi * radius;
+        double area = pi * radius * radius;
+        System.out.println("Circumference: " + String.format("%.2f", circumference));
+        System.out.println("Area: " + String.format("%.2f", area));
+    }
 
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
@@ -44,18 +102,18 @@ public class App {
         double num1_2a = scanner.nextDouble();
         double num1_2b = scanner.nextDouble();
         // Call the Chapter 1 Milestone 2 method here
+        chapter1milestone2(num1_2a, num1_2b); 
 
         System.out.println("\n** CHAPTER 1 MILESTONE 3 **");
         System.out.print("Enter a radius: ");
         double radius = scanner.nextDouble();
-        System.out.print("Circumference: ");
-        double circumference = scanner.nextDouble();
         // Call the Chapter 1 Milestone 3 method here
+        chapter1milestone3(radius); 
 
         System.out.println("\n** CHAPTER 2 MILESTONE 1 **");
         System.out.println("Enter a Number:");
         int num2_1 = scanner.nextInt();
-        // Call the Chapter 2 Milestone 1 method here
+        // Call the Chapter 2 Milestone 1 method here 
         Chapter2 chapter2 = new Chapter2();
         chapter2.milestone1(num2_1);
 
@@ -63,25 +121,29 @@ public class App {
         System.out.println("Please input a decimal number:");
         double num2_2 = scanner.nextDouble();
         // Call the Chapter 2 Milestone 2 method here
+        chapter2.milestone2(num2_2); 
 
         System.out.println("\n** CHAPTER 2 MILESTONE 3 **");
         // Call the Chapter 2 Milestone 3 method here
+        chapter2.milestone3(); 
 
         System.out.println("\n** CHAPTER 2 MILESTONE 4 **");
         System.out.println("Enter a number for seconds:");
         int seconds = scanner.nextInt();
         // Call the Chapter 2 Milestone 4 method here
+        chapter2.milestone4(seconds);
 
         System.out.println("\n** CHAPTER 3 MILESTONE 1 **");
         System.out.println("Enter two numbers:");
         int num3_1a = scanner.nextInt();
         int num3_1b = scanner.nextInt();
-        // Call the Chapter 3 Milestone 1 method here
+        // Call the Chapter 3 Milestone 1 method here 
+        Chapter3 chapter3 = new Chapter3();
+        chapter3.milestone1(num3_1a, num3_1b); 
 
         System.out.println("\n** CHAPTER 3 MILESTONE 2 **");
-        System.out.println("Enter a number:");
-        int num3_2 = scanner.nextInt();
         // Call the Chapter 3 Milestone 2 method here
+        chapter3.milestone2(scanner);
 
         System.out.println("\n** CHAPTER 3 MILESTONE 3 **");
         int min = 1;
@@ -93,11 +155,7 @@ public class App {
         System.out.println("What is the product of these two numbers?");
         int num3_3 = scanner.nextInt();
         // Call the Chapter 3 Milestone 3 method here
-        Chapter3 chapter3 = new Chapter3();
         chapter3.milestone3(randNum1, randNum2, num3_3);
-
-        System.out.println("\n** CHAPTER 3 MILESTONE 4 **");
-        // Call the Chapter 3 Milestone 4 method here
 
         scanner.close();
     }
